@@ -12,13 +12,10 @@
         less: less {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp KP_N6 &kp KP_N2>,
-                <&macro_release>;
-
+            bindings = 
+                <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N6 &kp KP_N2>
+                , <&macro_release &kp LALT>;
             label = "LESS";
         };
     };
