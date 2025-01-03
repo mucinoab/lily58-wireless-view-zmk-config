@@ -9,19 +9,21 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    macros {
-        less: less {
-            compatible = "zmk,behavior-macro";
+  behaviors {
+        less_than: less_than {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp KP_N0 &kp KP_N0 &kp KP_N6 &kp KP_N0>,
-                <&macro_release>,
-                <&kp LALT>;
+            bindings = <&kp Z>, <&kp RA(Z)>;
+            mods = <(MOD_RALT)>;
+            label = "LESS_THAN";
+        };
 
-            label = "LESS";
+        greater_than: greater_than {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp X>, <&kp RA(X)>;
+            mods = <(MOD_RALT)>;
+            label = "GREATER_THAN";
         };
     };
 
@@ -38,10 +40,10 @@
 
             label = "Base";
             bindings = <
-&kp ESC           &kp N1  &kp N2  &kp N3        &kp N4  &kp N5                                         &kp N6  &kp N7         &kp N8             &kp N9   &kp N0     &kp BACKSPACE
-&kp TAB           &kp Q   &kp W   &kp E         &kp R   &kp T                                          &kp Y   &kp U          &kp I              &kp O    &kp P      &kp LEFT_BRACKET
-&kp LEFT_SHIFT    &kp A   &kp S   &kp D         &kp F   &kp G                                          &kp H   &kp J          &kp K              &kp L    &kp SEMI   &kp RIGHT_SHIFT
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C         &kp V   &kp B         &kp APOSTROPHE    &kp BACKSLASH  &kp N   &kp M          &kp COMMA          &kp DOT  &kp SLASH  &kp RSHFT
+&kp ESC           &kp N1  &kp N2  &kp N3        &kp N4  &kp N5                                         &kp N6  &kp N7         &kp N8     &kp N9   &kp N0    &kp BACKSPACE
+&kp TAB           &kp Q   &kp W   &kp E         &kp R   &kp T                                          &kp Y   &kp U          &kp I      &kp O    &kp P     &kp LEFT_BRACKET
+&kp LEFT_SHIFT    &kp A   &kp S   &kp D         &kp F   &kp G                                          &kp H   &kp J          &kp K      &kp L    &kp SEMI  &kp RIGHT_SHIFT
+&kp LEFT_CONTROL  &less_than &greater_than &kp C &kp V   &kp B      &kp APOSTROPHE    &kp BACKSLASH    &kp N   &kp M          &kp COMMA  &kp DOT  &kp SLASH &kp RSHFT
                                   &kp LEFT_WIN  &mo 1   &kp LEFT_ALT  &kp RETURN        &kp SPACE      &mo 2   &kp RIGHT_ALT  &kp RIGHT_CONTROL
             >;
 
