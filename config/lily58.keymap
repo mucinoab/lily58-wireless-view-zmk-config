@@ -13,7 +13,7 @@
         less_than: less_than {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp Z>, <&kp LT>;  // Normal: Z, With AltGr: < (using direct LT code)
+            bindings = <&kp Z>, <&kp NON_US_BSLH>;  // Normal: Z, With AltGr: angle bracket key
             mods = <(MOD_RALT)>;
             label = "LESS_THAN";
         };
@@ -21,7 +21,7 @@
         greater_than: greater_than {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp X>, <&kp GT>;  // Normal: X, With AltGr: > (using direct GT code)
+            bindings = <&kp X>, <&kp LS(NON_US_BSLH)>;  // Normal: X, With AltGr: shifted angle bracket
             mods = <(MOD_RALT)>;
             label = "GREATER_THAN";
         };
